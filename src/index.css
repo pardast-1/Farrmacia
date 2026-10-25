@@ -1,0 +1,290 @@
+/* ==========================================================================
+   SALUDPLUS FARMACIA COMUNITARIA - HOJA DE ESTILOS PRINCIPAL (RECICLADA Y MEJORADA)
+   Migración de HTML/CSS (EP1 SaludPlus) a React + Bootstrap 5 (EP2 Farrmacia)
+   ========================================================================== */
+
+:root {
+  /* Paleta Institucional SaludPlus (Evaluación 1) */
+  --sp-primary: #00a86b;
+  --sp-primary-dark: #007f50;
+  --sp-primary-light: #e6f7f0;
+  --sp-secondary: #0f5132;
+  --sp-accent: #2ecc71;
+  --sp-offer: #e63946;
+  --sp-warning: #f59e0b;
+  --sp-info: #0284c7;
+
+  /* Superficies y Bordes */
+  --sp-bg: #f8f9fa;
+  --sp-surface: #ffffff;
+  --sp-border: #dee2e6;
+  --sp-text: #1e293b;
+  --sp-text-muted: #64748b;
+
+  /* Sombras y Radios */
+  --sp-radius-sm: 8px;
+  --sp-radius-md: 12px;
+  --sp-radius-lg: 16px;
+  --sp-shadow-sm: 0 2px 8px rgba(15, 81, 50, 0.06);
+  --sp-shadow-md: 0 8px 24px rgba(15, 81, 50, 0.10);
+  --sp-font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--sp-font-sans);
+  background-color: var(--sp-bg);
+  color: var(--sp-text);
+  overflow-x: hidden;
+}
+
+/* Barra superior informativa (Reciclada de SaludPlus v0.1.0) */
+.sp-topbar {
+  background: linear-gradient(90deg, var(--sp-secondary) 0%, var(--sp-primary-dark) 100%);
+  color: #ffffff;
+  font-size: 0.85rem;
+  padding: 0.45rem 1rem;
+  font-weight: 500;
+}
+
+/* Navbar y Header Principal siguiendo el Template del Profesor (Figura 1) */
+.sp-header {
+  background-color: var(--sp-surface);
+  border-bottom: 1px solid var(--sp-border);
+  box-shadow: var(--sp-shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
+.sp-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: var(--sp-primary-dark);
+  text-decoration: none;
+}
+
+.sp-brand-logo:hover {
+  color: var(--sp-primary);
+}
+
+.sp-cross-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: var(--sp-primary);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 900;
+  box-shadow: 0 3px 8px rgba(0, 168, 107, 0.25);
+}
+
+.sp-nav-link {
+  color: var(--sp-text);
+  font-weight: 500;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--sp-radius-sm);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.sp-nav-link:hover,
+.sp-nav-link.active {
+  color: var(--sp-primary-dark);
+  background-color: var(--sp-primary-light);
+}
+
+.sp-cart-btn {
+  background-color: var(--sp-primary);
+  color: #ffffff !important;
+  font-weight: 600;
+  border-radius: var(--sp-radius-sm);
+  padding: 0.5rem 1rem;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.sp-cart-btn:hover {
+  background-color: var(--sp-primary-dark);
+  transform: translateY(-1px);
+}
+
+/* Hero Banner / Carrusel (Figura 1 - 1200x300) */
+.sp-hero-banner {
+  background: linear-gradient(135deg, #0f5132 0%, #00a86b 60%, #2ecc71 100%);
+  color: #ffffff;
+  border-radius: var(--sp-radius-lg);
+  padding: 2.75rem 2.25rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--sp-shadow-md);
+}
+
+/* Tarjetas de Producto y Categoría (Recicladas de SaludPlus EP1 + Template EP2) */
+.sp-card {
+  background: var(--sp-surface);
+  border: 1px solid var(--sp-border);
+  border-radius: var(--sp-radius-md);
+  box-shadow: var(--sp-shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sp-shadow-md);
+}
+
+.sp-card-img-wrapper {
+  position: relative;
+  height: 190px;
+  background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  border-top-left-radius: var(--sp-radius-md);
+  border-top-right-radius: var(--sp-radius-md);
+}
+
+.sp-card-img-wrapper img {
+  max-height: 150px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.sp-category-badge {
+  background-color: var(--sp-primary-light);
+  color: var(--sp-primary-dark);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.sp-offer-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--sp-offer);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+}
+
+.sp-rx-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #0284c7;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+}
+
+.sp-price-current {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--sp-secondary);
+}
+
+.sp-price-old {
+  font-size: 0.88rem;
+  color: var(--sp-text-muted);
+  text-decoration: line-through;
+  margin-right: 0.45rem;
+}
+
+/* Panel Administrativo (Figura 9 y Figura 10) */
+.sp-admin-wrapper {
+  min-height: calc(100vh - 56px);
+  display: flex;
+  background-color: #f1f5f9;
+}
+
+.sp-admin-sidebar {
+  width: 250px;
+  background-color: #1e293b;
+  color: #f8fafc;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 0.75rem;
+}
+
+.sp-admin-sidebar .nav-link {
+  color: #cbd5e1;
+  border-radius: var(--sp-radius-sm);
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.sp-admin-sidebar .nav-link:hover,
+.sp-admin-sidebar .nav-link.active {
+  background-color: var(--sp-primary);
+  color: #ffffff;
+}
+
+.sp-kpi-card-blue {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  border-radius: var(--sp-radius-md);
+  padding: 1.35rem;
+}
+
+.sp-kpi-card-green {
+  background: linear-gradient(135deg, #00a86b 0%, #0f5132 100%);
+  color: #ffffff;
+  border-radius: var(--sp-radius-md);
+  padding: 1.35rem;
+}
+
+.sp-kpi-card-amber {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+  border-radius: var(--sp-radius-md);
+  padding: 1.35rem;
+}
+
+/* Responsividad móvil */
+@media (max-width: 768px) {
+  .sp-admin-wrapper {
+    flex-direction: column;
+  }
+  .sp-admin-sidebar {
+    width: 100%;
+  }
+  .sp-hero-banner {
+    padding: 1.75rem 1.25rem;
+  }
+}
